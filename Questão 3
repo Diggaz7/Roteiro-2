@@ -1,0 +1,90 @@
+using System;
+
+class Elevador{
+    
+    private int andarAtual;
+    
+    private int totalAndares;
+    
+    public int Andar{
+        
+        get{
+            
+            return andarAtual;
+            
+        }
+        private set {
+        if (value > 0 && value <= totalAndares){
+            
+            andarAtual = value;
+            
+        }
+        }
+    }
+    
+    public int TotalAndar{
+        
+        get{
+            
+            return totalAndares;
+            
+        }
+        set{
+        
+            if (value >= 0){
+                
+                totalAndares = value;
+                
+            }
+            }
+        
+    }
+    public Elevador(int totalAndares){
+        
+        TotalAndar = totalAndares;
+        andarAtual = 0;
+        
+    }
+    public void subir() {
+        
+        if (andarAtual < totalAndares)
+        {
+            andarAtual++;
+        }
+        else
+        {
+            Console.WriteLine("Já está no último andar.");
+        }
+    }
+    
+        public void Descer()
+    {
+        if (andarAtual > 0)
+        {
+            andarAtual--;
+        }
+        else
+        {
+            Console.WriteLine("Já está no térreo.");
+        }
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Elevador elevador = new Elevador(5); 
+
+        elevador.subir();
+        Console.WriteLine("Andar atual: " + elevador.Andar); // 1
+
+        elevador.subir();
+        elevador.subir();
+        elevador.subir();
+        elevador.subir(); // Vai até o andar 5
+        elevador.subir(); // Já está no último andar
+
+        elevador.Descer();
+        Console.WriteLine("Andar atual: " + elevador.Andar); // 4
+    }
+}
