@@ -1,0 +1,79 @@
+using System;
+class Carro {
+    
+    private string modelo;
+    
+    public string Modelo {
+        
+        get {
+            
+            return modelo;
+            
+        }
+        
+    }
+    
+    private int VelocidadeAtual;
+    
+    public int velocidade{
+        
+        get {
+            
+            return VelocidadeAtual;
+        }
+        private set{
+            
+        
+        if (value < 0){
+            
+            VelocidadeAtual = 0;
+        }
+        else {
+            
+            VelocidadeAtual = value;
+            
+        }
+        }
+        }
+    public Carro(string modelo)
+    {
+        
+        this.modelo = modelo;
+        this.VelocidadeAtual = 0;
+        
+    }
+    public void Acelerar(int valor){
+        
+        if (valor > 0){
+            
+            VelocidadeAtual += valor;
+            
+        }
+        
+    }
+    public void Frear(int valor){
+        
+        if (valor > 0){
+            
+            velocidade = VelocidadeAtual - valor;
+            
+        }
+    }
+    }
+
+class program{
+    
+    static void Main (){
+        
+        Carro c = new Carro("911");
+        c.Acelerar(50);
+        Console.WriteLine(c.velocidade);
+        c.Frear(20);
+        Console.WriteLine(c.velocidade);
+        c.Frear(100);
+        Console.WriteLine(c.velocidade);
+        
+    }
+    
+    
+}
