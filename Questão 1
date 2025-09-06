@@ -1,0 +1,50 @@
+class produto
+{
+    
+    private string nome;
+    
+    public string Nome{
+        
+        get {
+            
+            return nome;
+        }
+        
+    }
+    
+    private decimal preco; 
+    
+    public decimal Preco{
+        
+        get { return preco; }
+        set{
+            
+            if (value < 0) { 
+            Console.WriteLine("O valor não pode ser negativo");
+        }
+        preco = value;
+        
+    }
+    }
+    public produto(string nome, decimal preco){
+        
+        this.nome = nome;
+        Preco = preco;
+    }
+    public void ExibirDetalhes(){
+        
+        Console.WriteLine($"Nome {Nome}");
+        Console.WriteLine($"Preco {Preco}");
+    }
+}
+
+class Program{
+    
+    static void Main(){
+        
+        produto p = new produto("Celular", 1500);
+        p.ExibirDetalhes();
+        p.Preco = -200;
+        
+}
+}
